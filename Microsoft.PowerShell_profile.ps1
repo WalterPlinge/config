@@ -2,8 +2,9 @@ Function prompt {
 	Write-Host "$(Convert-Path $(Get-Location))" -NoNewline -ForegroundColor Cyan
 
 	if ((Get-History).count -ge 1) {
-		$executionTime = ((Get-History)[-1].EndExecutionTime - (Get-History)[-1].StartExecutionTime).Totalmilliseconds
-		$time = [math]::Round($executionTime, 3)
+		$lastCommand = (Get-History)[-1]
+		$executionTime = ($lastCommand.EndExecutionTime - $lastCommand.StartExecutionTime)
+		$time = [math]::Round($executionTime.TotalMilliseconds, 3)
 		Write-Host " $time ms" -NoNewline -ForegroundColor Yellow
 	}
 
