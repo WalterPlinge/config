@@ -1,0 +1,6 @@
+[
+	{ "keys": ["ctrl+k", "ctrl+o"], "command": "prompt_open_folder" },
+	{ "keys": ["alt+up"], "command": "swap_line_up" },
+	{ "keys": ["alt+down"], "command": "swap_line_down" },
+	{ "keys": ["alt+shift+f"], "command": "lsp_format_document" },
+]
