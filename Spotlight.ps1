@@ -22,11 +22,15 @@ $(Get-ChildItem).FullName | ForEach-Object {
 	# Spotlight images seem to not be square so we need differing dimensions
 	$image = [Drawing.Image]::FromFile("$_")
 	if ($image.Width -gt $image.Height) {
-		Write-Output "Landscape: $_"
-		Copy-Item "$_" "..\Landscape\"
+		if (!(Test-Path "..\Landscape\$_")) {
+			Write-Output "Landscape: $_"
+			Copy-Item "$_" "..\Landscape\"
+		}
 	} elseif ($image.Width -lt $image.Height) {
-		Write-Output "Portrait: $_"
-		Copy-Item "$_" "..\Portrait\"
+		if (!(Test-Path "..\Portrait\$_")) {
+			Write-Output "Portrait: $_"
+			Copy-Item "$_" "..\Portrait\"
+		}
 	}
 	# Clean up image so we can delete the temporary files later on
 	$image.Dispose()
