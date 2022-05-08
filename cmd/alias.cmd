@@ -6,11 +6,13 @@ doskey clear=cls $*
 doskey ls=dir /OG $*
 doskey which=where $*
 
+:: some git helpers
 doskey gita=git add $*
 doskey gitd=git diff $*
 doskey gitp=git push $*
 doskey gitf=git fetch $*
 doskey gitm=git merge $*
+doskey gitb=git branch $*
 doskey gitc=git commit $*
 doskey gits=git status $*
 doskey gitl=git log --decorate --graph --oneline $*
