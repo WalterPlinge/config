@@ -1,4 +1,4 @@
 @echo off
 
 :: I like a newline prompt better
-set prompt=$P$S$T$S$D$_$G$S
+set prompt=$P$S$D$S$T$_$G$S
