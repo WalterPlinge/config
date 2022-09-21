@@ -8,6 +8,7 @@
 	"margin": 0,
 	"fade_fold_buttons": false,
 	"tab_size": 4,
+	"word_wrap": true,
 	"draw_centered": true,
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"draw_minimap_border": true,
