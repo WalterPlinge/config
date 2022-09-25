@@ -1,0 +1,84 @@
+{
+	"selector":"source.odin",
+	"file_regex": "^(.+)\\(([0-9]+):([0-9]+)\\) (.+)$",
+	"shell_cmd":"odin check \"$file_path\"",
+	"variants":[
+		//
+		// current file
+		//
+
+		// syntax check
+		{ "name":"current file - syntax check", "shell_cmd":"odin check \"$file\" -file" },
+
+		// run
+		{ "name":"current file - run (debug, o:minimal)",                                           "shell_cmd":"odin run \"$file\" -file -o:minimal -debug"                                           },
+		{ "name":"current file - run (o:size)",                                                     "shell_cmd":"odin run \"$file\" -file -o:size"                                                     },
+		{ "name":"current file - run (o:size, no-bounds-check)",                                    "shell_cmd":"odin run \"$file\" -file -o:size -no-bounds-check"                                    },
+		{ "name":"current file - run (o:size, no-bounds-check, disable-assert)",                    "shell_cmd":"odin run \"$file\" -file -o:size -no-bounds-check -disable-assert"                    },
+		{ "name":"current file - run (o:size, no-bounds-check, disable-assert, microarch:native)",  "shell_cmd":"odin run \"$file\" -file -o:size -no-bounds-check -disable-assert -microarch:native"  },
+		{ "name":"current file - run (o:speed)",                                                    "shell_cmd":"odin run \"$file\" -file -o:speed"                                                    },
+		{ "name":"current file - run (o:speed, no-bounds-check)",                                   "shell_cmd":"odin run \"$file\" -file -o:speed -no-bounds-check"                                   },
+		{ "name":"current file - run (o:speed, no-bounds-check, disable-assert)",                   "shell_cmd":"odin run \"$file\" -file -o:speed -no-bounds-check -disable-assert"                   },
+		{ "name":"current file - run (o:speed, no-bounds-check, disable-assert, microarch:native)", "shell_cmd":"odin run \"$file\" -file -o:speed -no-bounds-check -disable-assert -microarch:native" },
+
+		// build asm
+		{ "name":"current file - build asm (debug, o:minimal)",                                           "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:minimal -debug"                                           },
+		{ "name":"current file - build asm (o:size)",                                                     "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:size"                                                     },
+		{ "name":"current file - build asm (o:size, no-bounds-check)",                                    "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:size -no-bounds-check"                                    },
+		{ "name":"current file - build asm (o:size, no-bounds-check, disable-assert)",                    "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:size -no-bounds-check -disable-assert"                    },
+		{ "name":"current file - build asm (o:size, no-bounds-check, disable-assert, microarch:native)",  "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:size -no-bounds-check -disable-assert -microarch:native"  },
+		{ "name":"current file - build asm (o:speed)",                                                    "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:speed"                                                    },
+		{ "name":"current file - build asm (o:speed, no-bounds-check)",                                   "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:speed -no-bounds-check"                                   },
+		{ "name":"current file - build asm (o:speed, no-bounds-check, disable-assert)",                   "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:speed -no-bounds-check -disable-assert"                   },
+		{ "name":"current file - build asm (o:speed, no-bounds-check, disable-assert, microarch:native)", "shell_cmd":"odin build \"$file\" -file -build-mode:asm -o:speed -no-bounds-check -disable-assert -microarch:native" },
+
+		// build llvm-ir
+		{ "name":"current file - build llvm-ir (debug, o:minimal)",                                           "shell_cmd":"odin build \"$file\" -file -build-mode:llvm-ir -o:minimal -debug"                                           },
+		{ "name":"current file - build llvm-ir (o:size)",                                                     "shell_cmd":"odin build \"$file\" -file -build-mode:llvm-ir -o:size"                                                     },
+		{ "name":"current file - build llvm-ir (o:size, no-bounds-check)",                                    "shell_cmd":"odin build \"$file\" -file -build-mode:llvm-ir -o:size -no-bounds-check"                                    },
+		{ "name":"current file - build llvm-ir (o:size, no-bounds-check, disable-assert)",                    "shell_cmd":"odin build \"$file\" -file -build-mode:llvm-ir -o:size -no-bounds-check -disable-assert"                    },
+		{ "name":"current file - build llvm-ir (o:speed)",                                                    "shell_cmd":"odin build \"$file\" -file -build-mode:llvm-ir -o:speed"                                                    },
+		{ "name":"current file - build llvm-ir (o:speed, no-bounds-check)",                                   "shell_cmd":"odin build \"$file\" -file -build-mode:llvm-ir -o:speed -no-bounds-check"                                   },
+		{ "name":"current file - build llvm-ir (o:speed, no-bounds-check, disable-assert)",                   "shell_cmd":"odin build \"$file\" -file -build-mode:llvm-ir -o:speed -no-bounds-check -disable-assert"                   },
+
+
+		//
+		// current package
+		//
+
+		// syntax check
+		{ "name":"current package - syntax check", "shell_cmd":"odin check \"$file_path\"" },
+
+		// run
+		{ "name":"current package - run (debug, o:minimal)",                                           "shell_cmd":"odin run \"$file_path\" -o:minimal -debug"                                           },
+		{ "name":"current package - run (o:size)",                                                     "shell_cmd":"odin run \"$file_path\" -o:size"                                                     },
+		{ "name":"current package - run (o:size, no-bounds-check)",                                    "shell_cmd":"odin run \"$file_path\" -o:size -no-bounds-check"                                    },
+		{ "name":"current package - run (o:size, no-bounds-check, disable-assert)",                    "shell_cmd":"odin run \"$file_path\" -o:size -no-bounds-check -disable-assert"                    },
+		{ "name":"current package - run (o:size, no-bounds-check, disable-assert, microarch:native)",  "shell_cmd":"odin run \"$file_path\" -o:size -no-bounds-check -disable-assert -microarch:native"  },
+		{ "name":"current package - run (o:speed)",                                                    "shell_cmd":"odin run \"$file_path\" -o:speed"                                                    },
+		{ "name":"current package - run (o:speed, no-bounds-check)",                                   "shell_cmd":"odin run \"$file_path\" -o:speed -no-bounds-check"                                   },
+		{ "name":"current package - run (o:speed, no-bounds-check, disable-assert)",                   "shell_cmd":"odin run \"$file_path\" -o:speed -no-bounds-check -disable-assert"                   },
+		{ "name":"current package - run (o:speed, no-bounds-check, disable-assert, microarch:native)", "shell_cmd":"odin run \"$file_path\" -o:speed -no-bounds-check -disable-assert -microarch:native" },
+
+		// build asm
+		{ "name":"current package - build asm (debug, o:minimal)",                                           "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:minimal -debug"                                           },
+		{ "name":"current package - build asm (o:size)",                                                     "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:size"                                                     },
+		{ "name":"current package - build asm (o:size, no-bounds-check)",                                    "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:size -no-bounds-check"                                    },
+		{ "name":"current package - build asm (o:size, no-bounds-check, disable-assert)",                    "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:size -no-bounds-check -disable-assert"                    },
+		{ "name":"current package - build asm (o:size, no-bounds-check, disable-assert, microarch:native)",  "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:size -no-bounds-check -disable-assert -microarch:native"  },
+		{ "name":"current package - build asm (o:speed)",                                                    "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:speed"                                                    },
+		{ "name":"current package - build asm (o:speed, no-bounds-check)",                                   "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:speed -no-bounds-check"                                   },
+		{ "name":"current package - build asm (o:speed, no-bounds-check, disable-assert)",                   "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:speed -no-bounds-check -disable-assert"                   },
+		{ "name":"current package - build asm (o:speed, no-bounds-check, disable-assert, microarch:native)", "shell_cmd":"odin build \"$file_path\" -build-mode:asm -o:speed -no-bounds-check -disable-assert -microarch:native" },
+
+		// build llvm-ir
+		{ "name":"current package - build llvm-ir (debug, o:minimal)",                                           "shell_cmd":"odin build \"$file_path\" -build-mode:llvm-ir -o:minimal -debug"                                           },
+		{ "name":"current package - build llvm-ir (o:size)",                                                     "shell_cmd":"odin build \"$file_path\" -build-mode:llvm-ir -o:size"                                                     },
+		{ "name":"current package - build llvm-ir (o:size, no-bounds-check)",                                    "shell_cmd":"odin build \"$file_path\" -build-mode:llvm-ir -o:size -no-bounds-check"                                    },
+		{ "name":"current package - build llvm-ir (o:size, no-bounds-check, disable-assert)",                    "shell_cmd":"odin build \"$file_path\" -build-mode:llvm-ir -o:size -no-bounds-check -disable-assert"                    },
+		{ "name":"current package - build llvm-ir (o:speed)",                                                    "shell_cmd":"odin build \"$file_path\" -build-mode:llvm-ir -o:speed"                                                    },
+		{ "name":"current package - build llvm-ir (o:speed, no-bounds-check)",                                   "shell_cmd":"odin build \"$file_path\" -build-mode:llvm-ir -o:speed -no-bounds-check"                                   },
+		{ "name":"current package - build llvm-ir (o:speed, no-bounds-check, disable-assert)",                   "shell_cmd":"odin build \"$file_path\" -build-mode:llvm-ir -o:speed -no-bounds-check -disable-assert"                   },
+
+	]
+}
